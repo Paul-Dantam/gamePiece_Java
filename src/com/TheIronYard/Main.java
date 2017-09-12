@@ -7,7 +7,7 @@ public class Main {
         GamePiece knight = new GamePiece();
 
         knight.setColor("white");
-        knight.setName("George");
+        knight.setName("Sir Robin");
 
 
 
