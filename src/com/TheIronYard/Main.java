@@ -9,13 +9,17 @@ public class Main {
         knight.setColor("white");
         knight.setName("George");
 
-        if (knight.isFrozen()) {
-            knight.unfreeze();
+
+
+        if (!knight.isFrozen()) {
+            knight.freeze();
+        System.out.println(knight.frozen);
         }
 
-//        if (!knight.isFrozen()) {
-//            knight.freeze();
-//        }
+        if (knight.isFrozen()) {
+            knight.unfreeze();
+            System.out.println(knight.frozen);
+        }
 
 
         if (!knight.isFrozen()) {
@@ -28,7 +32,7 @@ public class Main {
         }
 
         if (knight.isFrozen()) {
-            System.out.println(knight.getName()+"is frozen and can't move");
+            System.out.println(knight.getName()+" is frozen and can't move");
         }
 
 
