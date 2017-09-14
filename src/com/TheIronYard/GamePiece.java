@@ -52,10 +52,10 @@ public class GamePiece {
     }
 
     void move(int positionX, int positionY){
-        if(positionX<= 100 && positionX>= 0 && positionY<=500 && positionY >=0) {
+        if(positionX<= 100 && positionX>= 0 && positionY<=500 && positionY >=0 && !isFrozen()) {
             this.positionX = positionX;
             this.positionY = positionY;
-        }else System.out.println("Invalid movement");
+        }
 
     }
 
