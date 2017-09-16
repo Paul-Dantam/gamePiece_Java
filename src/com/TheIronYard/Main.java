@@ -29,28 +29,28 @@ public class Main {
         }
 
 
-
+        knight.unfreeze();
         if (!knight.isFrozen()) {
             int startY = knight.getPositionY();
             int startX = knight.getPositionX();
-            knight.move(startX +2, startY +2);
-            System.out.println("Verification: When isFrozen() is false, move() works correctly");
-        }else {
-            System.out.println("FAILED: when isFrozen() is false, move() does not work");
+            knight.move(startX + 2, startY + 2);
+            if (knight.getPositionX() != startX && knight.positionY != startY) {
+                System.out.println("Verification: When isFrozen() is false, move() works correctly");
+            } else {
+                System.out.println("FAILED: when isFrozen() is false, move() does not work");
+            }
         }
 
-
+    knight.freeze();
         if (knight.isFrozen()) {
             int startY = knight.getPositionY();
             int startX = knight.getPositionX();
-
             knight.move(startX+3, startY+4);
-            if(knight.getPositionX() != startX && knight.positionY != startY) {
+            if(knight.getPositionX() == startX && knight.positionY == startY) {
                 System.out.println("Verification: When isFrozen() is true, move() does not work");
             }else {
                 System.out.println("FAILED: when isFrozen() is true, move() is still functioning");
             }
-
             }
         }
     }
