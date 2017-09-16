@@ -10,47 +10,47 @@ public class Main {
         knight.setColor("white");
         knight.setName("Sir Robin");
 
+        // set as unFrozen
         if (!knight.isFrozen()) {
             knight.freeze();
             if(knight.isFrozen()) {
-                System.out.println("Verification: "+knight.getName()+" is frozen is "+knight.frozen);
+                System.out.println("Verified freeze() works correctly to set Frozen as true");
+            }else {
+                System.out.println("FAILED: freeze() when not frozen does not work");
             }
         }
         if (knight.isFrozen()) {
             knight.unfreeze();
             if (!knight.isFrozen()) {
-                System.out.println("Verification: "+knight.getName()+" is frozen is "+knight.frozen);
+                System.out.println("Verification: unFreeze() works correctly to set Frozen as false");
+            }else {
+                System.out.println("FAILED: unfreeze() when frozen does not work");
             }
         }
 
-        if (!knight.isFrozen()||knight.isFrozen()) {
-            knight.freeze();
-            int startY = knight.getPositionY();
-            System.out.println("Testing: "+knight.getName()+ " is at positionY before moving: " + knight.getPositionX());
-            int startX = knight.getPositionX();
-            System.out.println("Testing: "+knight.getName()+ " is at positionX before moving: "+ knight.getPositionY());
 
+
+        if (!knight.isFrozen()) {
+            int startY = knight.getPositionY();
+            int startX = knight.getPositionX();
             knight.move(startX +2, startY +2);
-            System.out.println("Testing: "+knight.getName()+ " is at positionY after moving: " + knight.getPositionX());
-            System.out.println("Testing: "+knight.getName()+ " is at positionX after moving: "+ knight.getPositionY());
-            System.out.println("Verification: "+knight.getName()+" is frozen and can't move");
+            System.out.println("Verification: When isFrozen() is false, move() works correctly");
+        }else {
+            System.out.println("FAILED: when isFrozen() is false, move() does not work");
         }
 
 
-        if (!knight.isFrozen()||knight.isFrozen()) {
-            knight.unfreeze();
+        if (knight.isFrozen()) {
             int startY = knight.getPositionY();
-            System.out.println("Testing: "+knight.getName()+ " is at positionX before moving: "+ knight.getPositionY());
             int startX = knight.getPositionX();
-            System.out.println("Testing: "+knight.getName()+ " is at positionY before moving: " + knight.getPositionX());
 
-            knight.move(startY+3, startX+4);
-            if(knight.positionX != startX || knight.positionY != startY) {
-                System.out.println("Testing: "+knight.getName()+ " is at positionX after moving: " + knight.getPositionX());
-                System.out.println("Testing: "+knight.getName()+ " is at positionY after moving: " + knight.getPositionY());
-                System.out.println("Verification: "+knight.getName()+" is not frozen and can move");
-
+            knight.move(startX+3, startY+4);
+            if(knight.getPositionX() != startX && knight.positionY != startY) {
+                System.out.println("Verification: When isFrozen() is true, move() does not work");
+            }else {
+                System.out.println("FAILED: when isFrozen() is true, move() is still functioning");
             }
+
             }
         }
     }
